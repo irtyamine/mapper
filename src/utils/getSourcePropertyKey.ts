@@ -20,11 +20,11 @@ export function getSourcePropertyKey(
   }
 
   const destNamingConvention = new destinationNamingConvention();
-  const srcNamingConvention = new sourceNamingConvention();
   const keyParts = path
     .split(destNamingConvention.splittingExpression)
     .filter(Boolean);
+
   return !keyParts.length
     ? path
-    : srcNamingConvention.transformPropertyName(keyParts);
+    : new sourceNamingConvention().transformPropertyName(keyParts);
 }
